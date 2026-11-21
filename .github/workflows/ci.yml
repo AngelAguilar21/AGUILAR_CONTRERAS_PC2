@@ -22,8 +22,8 @@ jobs:
 
       - name: Notificar éxito a Slack
         if: success()
-        run: node notificar.mjs exito "PR #${{ github.event.pull_request.number }} (${{ github.head_ref }})"
+        run: node notificar.mjs exito "Pull Request ${{ github.event.pull_request.number }}"
 
       - name: Notificar error a Slack
         if: failure()
-        run: node notificar.mjs error "PR #${{ github.event.pull_request.number }} (${{ github.head_ref }})"
+        run: node notificar.mjs error "Pull Request ${{ github.event.pull_request.number }}"
