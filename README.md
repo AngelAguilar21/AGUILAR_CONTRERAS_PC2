@@ -10,3 +10,16 @@ API de ejemplo sin dependencias. Requiere Node.js 20 o superior.
 
 Rutas actuales: `/productos` y `/total?ids=1,2&cupon=DESC10`.
 Las instrucciones de la práctica están en el enunciado de la PC02.
+
+## Rutas
+
+- `/health` responde 200 con `{"status":"ok"}`.
+- `/ready` responde 200 con `{"status":"listo"}`, o 503 si `BASE_DE_DATOS_OK=false`.
+- Cada petición escribe una línea JSON en consola (`ts`, `level`, `msg`, `method`, `path`, `status`, `ms`).
+
+## Notificación a Slack
+
+    SLACK_WEBHOOK_URL=<webhook> node notificar.mjs exito
+    SLACK_WEBHOOK_URL=<webhook> node notificar.mjs error "detalle"
+
+El webhook se lee solo de la variable de entorno `SLACK_WEBHOOK_URL` (en CI, del secret del mismo nombre).
