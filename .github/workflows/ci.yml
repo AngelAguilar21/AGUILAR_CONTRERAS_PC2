@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+
+      - run: npm test
+
+      - name: Notificar éxito a Slack
+        if: success()
+        run: node notificar.mjs exito "Pull Request ${{ github.event.pull_request.number }}"
+
+      - name: Notificar error a Slack
+        if: failure()
+        run: node notificar.mjs error "Pull Request ${{ github.event.pull_request.number }}"
