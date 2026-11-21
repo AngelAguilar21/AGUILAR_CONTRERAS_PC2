@@ -27,4 +27,4 @@ El webhook se lee solo de la variable de entorno `SLACK_WEBHOOK_URL` (en CI, del
 ## Despliegue (T5)
 
 - Plataforma: Render (Web Service, runtime Node, comando de inicio `npm start`; configuración en `render.yaml`).
-- URL pública: COMPLETAR_CON_LA_URL_DE_RENDER (verificar `<URL>/health` responde 200 con `{"status":"ok"}`).
+- URL pública: https://aguilar-contreras-pc2.onrender.com (verificar `<URL>/health` responde 200 con `{"status":"ok"}`).
