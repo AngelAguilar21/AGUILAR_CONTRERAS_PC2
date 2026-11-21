@@ -23,3 +23,8 @@ Las instrucciones de la práctica están en el enunciado de la PC02.
     SLACK_WEBHOOK_URL=<webhook> node notificar.mjs error "detalle"
 
 El webhook se lee solo de la variable de entorno `SLACK_WEBHOOK_URL` (en CI, del secret del mismo nombre).
+
+## Despliegue (T5)
+
+- Plataforma: Render (Web Service, runtime Node, comando de inicio `npm start`; configuración en `render.yaml`).
+- URL pública: COMPLETAR_CON_LA_URL_DE_RENDER (verificar `<URL>/health` responde 200 con `{"status":"ok"}`).
